@@ -74,10 +74,10 @@ with st.sidebar:
     3. 解释结果                   
     ''')
     '---'
-    st.write("模型效能评价：")
-    # st.image('time_dependent_auc.png')
-    st.write('变量重要性：')
-    # st.image('variable_important.png')
+    st.write("模型效能ROC：")
+    st.image('heart_roc.png')
+    st.write('整体变量重要性：')
+    st.image('heart_shap.png')
     
     
 # 经典的问句
@@ -106,6 +106,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
             response = main(prompt)
             # 将响应解析为JSON格式
             msg = json.loads(response)
+            # print(msg)
             # 提取响应中的答案部分
             answer = msg["answer"]
             # 将助手的回答添加到会话状态的'messages'列表中
